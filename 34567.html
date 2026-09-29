@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOSTY STÍNĚNÍ | dostyzaluzie.cz - Precizní montáž stínící techniky</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slateDark: '#050b14',
+                        slateCard: '#0b132b',
+                        blueAccent: '#0ea5e9',
+                        blueHover: '#0284c7',
+                        electricBlue: '#0099ff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050b14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+
+        /* Четкий фиксированный фон с жалюзи без сильного тумана */
+        .blinds-fixed-bg {
+            background-image: url('blinds.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-slateDark text-slate-100 font-sans antialiased selection:bg-blueAccent selection:text-slateDark">
+
+    <!-- Уменьшена высота хедера (h-16 вместо h-20) для экономии места -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#050b14]/90 backdrop-blur-md border-b border-slate-800/85 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo & Domain -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-electricBlue to-cyan-400 flex items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-electricBlue/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-blinds"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-extrabold tracking-tight text-white block leading-tight">DOSTY <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">STÍNĚNÍ</span></span>
+                    <span class="text-[11px] text-slate-400 font-medium tracking-wide">dostyzaluzie.cz</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+                <a href="#o-mne" class="text-slate-300 hover:text-blueAccent transition-colors">O mně</a>
+                <a href="#sluzby" class="text-slate-300 hover:text-blueAccent transition-colors">Služby</a>
+                <a href="#realizace" class="text-slate-300 hover:text-blueAccent transition-colors">Realizace</a>
+                <a href="#recenze" class="text-slate-300 hover:text-blueAccent transition-colors">Recenze</a>
+                <a href="#kontakt" class="text-slate-300 hover:text-blueAccent transition-colors">Kontakt</a>
+            </nav>
+
+            <!-- Quick Action CTA & Mobile Menu Button -->
+            <div class="flex items-center gap-3">
+                <a href="tel:+420602123456" class="hidden sm:inline-flex items-center gap-2 bg-electricBlue hover:bg-blueHover text-white font-semibold px-3.5 py-2 rounded-xl shadow-md shadow-electricBlue/20 transition-all text-sm transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Zavolat</span>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl bg-slateCard text-slate-300 hover:text-white border border-slate-800 focus:outline-none">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slateCard border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#o-mne" class="block text-slate-200 hover:text-blueAccent font-medium py-1 mobile-link">O mně</a>
+            <a href="#sluzby" class="block text-slate-200 hover:text-blueAccent font-medium py-1 mobile-link">Služby</a>
+            <a href="#realizace" class="block text-slate-200 hover:text-blueAccent font-medium py-1 mobile-link">Realizace</a>
+            <a href="#recenze" class="block text-slate-200 hover:text-blueAccent font-medium py-1 mobile-link">Recenze</a>
+            <a href="#kontakt" class="block text-slate-200 hover:text-blueAccent font-medium py-1 mobile-link">Kontakt</a>
+            <div class="pt-2 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:+420602123456" class="flex items-center justify-center gap-2 bg-electricBlue text-white font-bold py-3 rounded-xl shadow-lg shadow-electricBlue/30">
+                    <i class="fa-solid fa-phone-volume"></i> Zavolat +420 602 123 456
+                </a>
+                <a href="mailto:info@dostyzaluzie.cz" class="flex items-center justify-center gap-2 bg-slate-900 text-slate-200 font-semibold py-3 rounded-xl border border-slate-800">
+                    <i class="fa-solid fa-envelope"></i> Napsat na mail
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section: Снижены отступы сверху/снизу (pt-20 pb-12), чтобы блок статистики гарантированно влезал в экран -->
+    <section class="relative pt-24 pb-14 md:pt-28 md:pb-16 overflow-hidden blinds-fixed-bg">
+        <!-- Легкое затемнение фона -->
+        <div class="absolute inset-0 bg-[#050b14]/55"></div>
+
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-electricBlue/10 rounded-full blur-[130px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slateCard/90 border border-slate-700 text-blueAccent text-xs sm:text-sm font-medium shadow-xl">
+                        <i class="fa-solid fa-shield-halved"></i> dostyzaluzie.cz | Profesionální stínění
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md">
+                        Precizní montáž stínící techniky <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricBlue via-cyan-400 to-blue-300">pro Váš domov a Vaše soukromí</span>
+                    </h1>
+                    
+                    <!-- Новый текст от заказчика (вместо старого) -->
+                    <div class="space-y-2 text-slate-200 text-sm sm:text-base font-medium max-w-2xl mx-auto lg:mx-0 drop-shadow bg-slateCard/60 p-4 rounded-2xl border border-slate-700/60">
+                        <p>„Dělám to tak, jako bych si stínění montoval doma. Neříkám, že nikdy neudělám chybu – jsem člověk. Za ty roky už jsem jich pár měl. 😄 Ale právě zkušenosti mě naučily, že většina problémů má řešení. A když už za svou práci ručím, nechci odejít, dokud nejsem s výsledkem spokojený já i zákazník.“</p>
+                        <p class="text-blue-300 font-semibold">„Práci považuji za hotovou až ve chvíli, kdy se za ní můžu s čistým svědomím podepsat.“</p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                        <a href="tel:+420602123456" class="flex items-center gap-2.5 bg-electricBlue hover:bg-blueHover text-white font-bold px-5 py-3 rounded-xl shadow-xl shadow-electricBlue/30 hover:scale-105 transition-all text-sm sm:text-base">
+                            <i class="fa-solid fa-phone text-base"></i>
+                            <span>Zavolat</span>
+                        </a>
+                        <a href="mailto:info@dostyzaluzie.cz" class="flex items-center gap-2.5 bg-slateCard/90 hover:bg-slate-900 text-slate-200 border border-slate-700 font-semibold px-5 py-3 rounded-xl transition-all hover:scale-105 text-sm sm:text-base shadow-lg">
+                            <i class="fa-solid fa-envelope text-blueAccent text-base"></i>
+                            <span>Napsat na mail</span>
+                        </a>
+                        <a href="#realizace" class="flex items-center gap-2.5 bg-slateCard/70 hover:bg-slateCard/90 text-slate-200 hover:text-white font-medium px-5 py-3 rounded-xl transition-all border border-slate-700 text-sm sm:text-base shadow-lg">
+                            <i class="fa-solid fa-images text-blue-400 text-base"></i>
+                            <span>Realizace</span>
+                        </a>
+                    </div>
+
+                    <!-- Блок статистики, который теперь гарантированно помещается на экране -->
+                    <div class="pt-4 grid grid-cols-3 gap-4 border-t border-slate-600/60 mt-4 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electricBlue to-cyan-400">100%</div>
+                            <div class="text-xs text-slate-200 mt-0.5 font-semibold">Preciznost a péče</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electricBlue to-cyan-400">Osobní</div>
+                            <div class="text-xs text-slate-200 mt-0.5 font-semibold">Přístup k zákazníkovi</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-electricBlue to-cyan-400">Top</div>
+                            <div class="text-xs text-slate-200 mt-0.5 font-semibold">Kvalitní materiály</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="relative bg-slateCard/95 border border-slate-700 rounded-3xl p-6 sm:p-7 shadow-2xl space-y-5">
+                            <div class="flex items-center justify-between pb-3.5 border-b border-slate-800">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-xl font-bold">
+                                        <i class="fa-solid fa-user-gear"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-white text-base">Daniel / Dosty</h3>
+                                        <p class="text-xs text-blueAccent font-medium">Specialista na stínění</p>
+                                    </div>
+                                </div>
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+                                    Přijímá zakázky
+                                </span>
+                            </div>
+
+                            <blockquote class="text-slate-200 italic text-xs sm:text-sm leading-relaxed bg-[#050b14]/80 p-3.5 rounded-2xl border border-slate-800">
+                                „Jmenuji se Daniel a v oboru montáže stínící techniky se věnuji profesionálně. Nehledám nejrychlejší cestu – hledám správné řešení.“
+                            </blockquote>
+
+                            <div class="space-y-2.5 text-xs sm:text-sm text-slate-200">
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-blueAccent"></i>
+                                    <span>Montáž jako pro sebe doma</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-blueAccent"></i>
+                                    <span>Práce nikdy nenechávám rozdělané</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-blueAccent"></i>
+                                    <span>Vše řeším a domlouvám se zákazníkem</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-1">
+                                <a href="#kontakt" class="w-full block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 rounded-xl border border-slate-700 transition-colors shadow-md text-sm">
+                                    Nezávazná poptávka
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- O mně -->
+    <section id="o-mne" class="py-24 blinds-fixed-bg border-t border-slate-800/80">
+        <div class="absolute inset-0 bg-[#050b14]/50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blueAccent">O mně</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white drop-shadow">Kvalita, na kterou se můžete spolehnout</h3>
+                <p class="text-slate-200 font-medium">Můj přístup k práci vychází z poctivého řemesla a osobní zodpovědnosti za každý namontovaný prvek.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-slateCard/95 border border-slate-700 p-8 rounded-3xl shadow-xl hover:border-blueAccent/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Profesionální přístup</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Jmenuji se Daniel a montáži stínící techniky se věnuji s plným nasazením a dlouholetými zkušenostmi.
+                    </p>
+                </div>
+
+                <div class="bg-slateCard/95 border border-slate-700 p-8 rounded-3xl shadow-xl hover:border-blueAccent/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Jako u sebe doma</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Každou práci dělám tak, jako bych ji dělal u sebe doma. Nehledám zkratky, ale ideální funkční výsledek.
+                    </p>
+                </div>
+
+                <div class="bg-slateCard/95 border border-slate-700 p-8 rounded-3xl shadow-xl hover:border-blueAccent/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Puntičkářská preciznost</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Nad každou montáží přemýšlím, ladím detaily a záleží mi na tom, aby vše fungovalo absolutně bezchybně.
+                    </p>
+                </div>
+
+                <div class="bg-slateCard/95 border border-slate-700 p-8 rounded-3xl shadow-xl hover:border-blueAccent/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Spolehlivost a komunikace</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Vše domlouvám se zákazníkem předem. Práci nikdy nenechávám rozdělané – dotahuji věci do úspěšného konce.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Služby -->
+    <section id="sluzby" class="py-24 bg-slateDark border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blueAccent">Služby</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Kompletní stínící technika pro váš domov</h3>
+                <p class="text-slate-300">Nabízím dodávku, montáž, servis i individuální poradenství pro veškerou moderní stínící techniku.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-slateCard border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-electricBlue transition-all flex flex-col justify-between group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateCard via-slateCard/20 to-transparent z-10"></div>
+                        <img src="https://placehold.co/600x400/0b132b/0ea5e9?text=Venkovni+Zaluzie" alt="Venkovní žaluzie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/0b132b/0ea5e9?text=Stinici+Technika'">
+                        <div class="absolute top-4 right-4 z-20 bg-electricBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Populární</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="text-blueAccent text-xl"><i class="fa-solid fa-bars-staggered"></i></div>
+                                <h4 class="text-xl font-bold text-white">Venkovní žaluzie</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Dokonalá regulace světla a teploty v interiéru. Snižují náklady na klimatizaci a zajišťují soukromí.
+                            </p>
+                        </div>
+                        <a href="#kontakt" class="inline-flex items-center gap-2 text-blueAccent font-semibold text-sm hover:text-cyan-300 transition-colors pt-2">
+                            <span>Mám zájem</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-slateCard border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-electricBlue transition-all flex flex-col justify-between group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateCard via-slateCard/20 to-transparent z-10"></div>
+                        <img src="https://placehold.co/600x400/0b132b/0ea5e9?text=Rolety+Exter+Inter" alt="Rolety" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/0b132b/0ea5e9?text=Rolety'">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="text-blueAccent text-xl"><i class="fa-solid fa-window-maximize"></i></div>
+                                <h4 class="text-xl font-bold text-white">Rolety (exteriérové i interiérové)</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Venkovní bezpečnostní a izolační rolety, nebo stylové interiérové látkové rolety pro každý interiér.
+                            </p>
+                        </div>
+                        <a href="#kontakt" class="inline-flex items-center gap-2 text-blueAccent font-semibold text-sm hover:text-cyan-300 transition-colors pt-2">
+                            <span>Mám zájem</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-slateCard border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-electricBlue transition-all flex flex-col justify-between group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateCard via-slateCard/20 to-transparent z-10"></div>
+                        <img src="https://placehold.co/600x400/0b132b/0ea5e9?text=Markyzy" alt="Markýzy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/0b132b/0ea5e9?text=Markyzy'">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="text-blueAccent text-xl"><i class="fa-solid fa-umbrella-beach"></i></div>
+                                <h4 class="text-xl font-bold text-white">Markýzy</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Příjemný stín pro vaši terasu, balkón či venkovní posezení. Odolné konstrukce a široký výběr látek.
+                            </p>
+                        </div>
+                        <a href="#kontakt" class="inline-flex items-center gap-2 text-blueAccent font-semibold text-sm hover:text-cyan-300 transition-colors pt-2">
+                            <span>Mám zájem</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-slateCard border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-electricBlue transition-all flex flex-col justify-between group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateCard via-slateCard/20 to-transparent z-10"></div>
+                        <img src="https://placehold.co/600x400/0b132b/0ea5e9?text=Site+proti+hmyzu" alt="Sítě proti hmyzu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/0b132b/0ea5e9?text=Site+hmyz'">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="text-blueAccent text-xl"><i class="fa-solid fa-bug-slash"></i></div>
+                                <h4 class="text-xl font-bold text-white">Sítě proti hmyzu</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Efektivní a nenápadná ochrana oken i dveří proti obtížnému hmyzu. Pevné, rolovací i dveřní sítě.
+                            </p>
+                        </div>
+                        <a href="#kontakt" class="inline-flex items-center gap-2 text-blueAccent font-semibold text-sm hover:text-cyan-300 transition-colors pt-2">
+                            <span>Mám zájem</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-slateCard border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-electricBlue transition-all flex flex-col justify-between group md:col-span-2 lg:col-span-2">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateCard via-slateCard/20 to-transparent z-10"></div>
+                        <img src="https://placehold.co/800x400/0b132b/0ea5e9?text=Servis+a+serizeni" alt="Servis a seřízení" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/0b132b/0ea5e9?text=Servis'">
+                        <div class="absolute top-4 right-4 z-20 bg-electricBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">Péče o zákazníky</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="text-blueAccent text-xl"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                                <h4 class="text-xl font-bold text-white">Servis a seřízení</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Nefungují vám žaluzie tak, jak by měly? Potřebují seřídit, vyměnit motor či popruhy? Poskytuji odborný servis, diagnostiku a seřízení pro dlouhou životnost vaší stínící techniky.
+                            </p>
+                        </div>
+                        <a href="#kontakt" class="inline-flex items-center gap-2 text-blueAccent font-semibold text-sm hover:text-cyan-300 transition-colors pt-2">
+                            <span>Objednat servis</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Realizace -->
+    <section id="realizace" class="py-24 blinds-fixed-bg border-t border-slate-800/80">
+        <div class="absolute inset-0 bg-[#050b14]/50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blueAccent">Realizace</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white drop-shadow">Ukázky mé práce</h3>
+                <p class="text-slate-200 font-medium">Prohlédněte si vybrané instalace venkovních žaluzií, rolet a markýz u spokojených zákazníků.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-slateCard/95 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="IMG_20250319_112015(1).jpg" alt="Rodinný dům - Venkovní žaluzie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="text-white text-sm font-medium">Moderní rodinný dům – venkovní žaluzie</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-blueAccent uppercase tracking-wider">Rodinný dům</span>
+                        <h4 class="text-lg font-bold text-white mt-1">Kompletní stínění novostavby</h4>
+                        <p class="text-slate-300 text-sm mt-2">Instalace venkovních žaluzií s elegantním ovládáním.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-slateCard/95 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="IMG-20251017-WA0006(1).jpg" alt="Byt / Interiér" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="text-white text-sm font-medium">Byt / Interiér – stínění a závěsy</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-blueAccent uppercase tracking-wider">Byt</span>
+                        <h4 class="text-lg font-bold text-white mt-1">Interiérové stínění a technika</h4>
+                        <p class="text-slate-300 text-sm mt-2">Precizní montáž prvků v interiéru zakázky.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-slateCard/95 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="20260722_135703(1)(1).jpg" alt="Terasa - Markýza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <span class="text-white text-sm font-medium">Terasová markýza</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-blueAccent uppercase tracking-wider">Terasa</span>
+                        <h4 class="text-lg font-bold text-white mt-1">Stínění venkovního posezení</h4>
+                        <p class="text-slate-300 text-sm mt-2">Instalace markýzy pro pohodlný pobyt na terase.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recenze -->
+    <section id="recenze" class="py-24 bg-slateDark border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blueAccent">Recenze</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Co říkají zákazníci</h3>
+                <p class="text-slate-300">Přečtěte si hodnocení od lidí, kterým jsem pomohl se stíněním.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slateCard border border-slate-800 p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            „Pan Dostál nám montoval venkovní žaluzie na celý rodinný dům. Neuvěřitelně precizní práce, po sobě uklidil, vše vysvětlil. Doporučuji všem!“
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-electricBlue/20 text-blueAccent flex items-center justify-center font-bold">PK</div>
+                        <div>
+                            <h5 class="font-bold text-white text-sm">Petr K.</h5>
+                            <span class="text-xs text-slate-400">Brno-venkov</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slateCard border border-slate-800 p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            „Rychlá domluva, férová cena a perfektní výsledek. Rolety fungují skvěle a montáž proběhla bez jediného zádrhelu.“
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-electricBlue/20 text-blueAccent flex items-center justify-center font-bold">JS</div>
+                        <div>
+                            <h5 class="font-bold text-white text-sm">Jana S.</h5>
+                            <span class="text-xs text-slate-400">Blansko</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slateCard border border-slate-800 p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-amber-400 gap-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            „Oceňuji lidský a profesionální přístup. Pan Dosty poradil s výběrem a odvedl čistou řemeslnou práci.“
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-electricBlue/20 text-blueAccent flex items-center justify-center font-bold">MV</div>
+                        <div>
+                            <h5 class="font-bold text-white text-sm">Martin V.</h5>
+                            <span class="text-xs text-slate-400">Kuřim</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="py-24 blinds-fixed-bg border-t border-slate-800/80 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[#050b14]/50"></div>
+        <div class="absolute top-1/2 left-0 w-96 h-96 bg-electricBlue/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-blueAccent">Kontakt</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white drop-shadow">Pojďme vyřešit vaše stínění</h3>
+                <p class="text-slate-200 font-medium">Zavolejte mi, napište na e-mail nebo vyplňte kontaktní formulář a já se vám ozvu zpět.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slateCard/95 border border-slate-700 rounded-3xl p-8 shadow-2xl space-y-8">
+                        <div>
+                            <h4 class="text-2xl font-bold text-white mb-2">Rychlý kontakt</h4>
+                            <p class="text-slate-300 text-sm">Jsem vám plně k dispozici pro konzultace a poptávky.</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <a href="tel:+420602123456" class="flex items-start gap-4 group">
+                                <div class="w-12 h-12 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-xl shrink-0 group-hover:bg-electricBlue group-hover:text-white transition-colors">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block font-medium">Zavolat</span>
+                                    <span class="text-lg font-bold text-white group-hover:text-blueAccent transition-colors">+420 602 123 456</span>
+                                </div>
+                            </a>
+
+                            <a href="mailto:info@dostyzaluzie.cz" class="flex items-start gap-4 group">
+                                <div class="w-12 h-12 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-xl shrink-0 group-hover:bg-electricBlue group-hover:text-white transition-colors">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block font-medium">Napsat na mail</span>
+                                    <span class="text-lg font-bold text-white group-hover:text-blueAccent transition-colors">info@dostyzaluzie.cz</span>
+                                </div>
+                            </a>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-electricBlue/15 text-electricBlue flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block font-medium">Webová adresa</span>
+                                    <span class="text-lg font-bold text-white">dostyzaluzie.cz</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t border-slate-800 text-xs text-slate-300 leading-relaxed">
+                            <strong class="text-white block mb-1">DOSTY STÍNĚNÍ</strong> – profesionální montáž stínící techniky s důrazem na preciznost a spokojenost zákazníka.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-slateCard/95 border border-slate-700 rounded-3xl p-8 sm:p-10 shadow-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-2">Nezávazná poptávka / Zpráva</h4>
+                        <p class="text-slate-300 text-sm mb-8">Vyplňte formulář a já se vám ozvu zpět s návrhem řešení.</p>
+
+                        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Děkuji za zprávu! V této demo verzi je formulář pouze vizuální. Prosím kontaktujte mě přímo přes telefon nebo email.');">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Vaše jméno</label>
+                                    <input type="text" required placeholder="Jan Novák" class="w-full bg-[#050b14] border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-blueAccent transition-colors">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Telefonní číslo</label>
+                                    <input type="tel" required placeholder="+420 123 456 789" class="w-full bg-[#050b14] border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-blueAccent transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">E-mailová adresa</label>
+                                <input type="email" required placeholder="jan.novak@example.cz" class="w-full bg-[#050b14] border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-blueAccent transition-colors">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Vyberte službu / zájem</label>
+                                <select class="w-full bg-[#050b14] border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-blueAccent transition-colors">
+                                    <option>Venkovní žaluzie</option>
+                                    <option>Rolety (exteriérové / interiérové)</option>
+                                    <option>Markýzy</option>
+                                    <option>Sítě proti hmyzu</option>
+                                    <option>Servis a seřízení</option>
+                                    <option>Jiné / Poradenství</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Vaše zpráva / poznámka</label>
+                                <textarea rows="4" placeholder="Napište mi podrobnosti o vaší poptávce (např. kolik oken, jaký typ stínění...)" class="w-full bg-[#050b14] border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-blueAccent transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-electricBlue hover:bg-blueHover text-white font-bold py-4 rounded-xl shadow-lg shadow-electricBlue/30 transition-all text-base">
+                                Odeslat nezávaznou poptávku
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 pt-8 border-t border-slate-800 text-center text-slate-400 text-sm">
+                <p>&copy; 2026 Daniel Dosty (dostyzaluzie.cz). Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
